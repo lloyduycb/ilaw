@@ -151,20 +151,61 @@ section {
     margin-top: 2rem;
 }
 
-.video-thumb {
-    width: 22.5rem;
-    height: 40rem;
-    background-color: #f5f5fa;
-    border-radius: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Optional: adds a shadow for better visual effect */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.swiper-slide {
+    max-width: 800px;
+    width: 100%;
+    transition: width 700ms ease;
 }
 
-video {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 1rem;
+.slider-video {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    line-height: 0;
+    border-radius: 2rem;
 }
+
+.swiper-slide video{
+    width: 100%;
+}
+
+.swiper-btns{
+    max-width: 800px;
+    width: 100%;
+    height: 70px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    line-height: 0;
+}
+
+.swiper-slide h3 {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    left: 20px;
+    bottom: 30px;
+    z-index: 11;
+    font-size: 6rem;
+}
+
+/* 
+[class*="swiper-button-"]{
+    width: 70px;
+    height: 70px;
+    border-radius: 5%;
+    display: inline-flex;
+    color: #f5f5fa;
+    margin-top: 0;
+    top: 0;
+    --swiper-navigation-size:35px;
+}
+[class*="swiper-button-"]:hover{
+
+} */

@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ilaw</title>
     <link rel="stylesheet" href="styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.css">
+    <link rel="stylesheet" href="swiper.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
+
 <body>
 
     <header class="header">
@@ -25,26 +28,46 @@
 
     <section class="projects" id="projects">
         <h3 class="heading">Projects</h3>
-        <div class="project-container">
-            <div class="video-thumb">
-                <!-- You can add content like an image or a video inside this div -->
-                <video width="360" height="640" controls>
-                    <source src="Video-436.mp4" type="video/mp4">
-                </video>
+        <div class="swiper">
+            <div class="swiper-btns">
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
-            <div class="video-thumb">
-                <!-- Another project thumbnail -->
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+            <div class="swiper-slide">
+                <h3>Magnetic Cover</h3>
+                <div class="slider-video">
+                    <video src="Video-436.mp4" type="video/mp4"></video>
+                </div>
             </div>
-            <!-- Add more .video-thumb divs as needed -->
-            <div class="video-thumb"></div>
-            <div class="video-thumb"></div>
-            <div class="video-thumb"></div>
-            <div class="video-thumb"></div>
+
+            <div class="swiper-slide">
+                <h3>Plus Cafe</h3>
+                <div class="slider-video">
+                    <video src="Video-563.mp4" type="video/mp4"></video>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <h3>Combat Martial Arts</h3>
+                <div class="slider-video">
+                    <video src="Video-663.mp4" type="video/mp4"></video>
+                </div>
+            </div>
+
+            </div>
         </div>
     </section>
-    
 
 
-    
+
+
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="initialise.js"></script>
+
 </html>
