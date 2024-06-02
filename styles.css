@@ -52,6 +52,7 @@ html {
     cursor: pointer;
     transition: 0.3s ease-in-out;
     font-weight: 600;
+    align-items: center;
 }
 
 .logo:hover {
@@ -96,12 +97,39 @@ section {
 }
 
 .home {
-    display: flex;
+    display: relative;
     justify-content: center;
     align-items: center;
     gap: 10rem;
-    background: var(--bg-color);
     color: var(--text-color);
+}
+
+.home.home-content {
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-clip {
+    position: absolute; 
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    overflow: hidden;
+    filter: grayscale(100%) opacity(0.3);
+}
+
+@media (min-aspect-ratio: 16/9){
+    .bg-clip{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio: 16/9){
+    .bg-clip{
+        width: auto;
+        height: 100%;
+    }
 }
 
 .home-content {
@@ -140,18 +168,80 @@ section {
     text-shadow: 0 0 10px rgba(247, 203, 11, 0.904), 0 0 20px rgba(247, 203, 11, 0.904), 0 0 30px rgba(247, 203, 11, 0.904);
 }
 
-.project-container {
+.about-content {
     display: flex;
-    flex-direction: row;
-    padding: 2em;
-    gap: 2em;
-    /* shorthand for both row-gap and column-gap */
     align-items: center;
     justify-content: center;
-    margin-top: 2rem;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 3rem;
+    cursor: default;
 }
 
+.about-content p{
+    font-size: 2rem;
+    margin: 2rem 0 3rem;
+}
+
+.contact::before, .about-content::before {
+    content: '';
+    background-image: url('image00001.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; /* Keep the image fixed when scrolling */
+    background-size: cover;
+    position: fixed; /* Use absolute positioning */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    filter: grayscale(100%);
+    opacity: 0.3;
+    z-index: -1; /* Ensure the background is behind the content */
+}
+
+.social-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: transparent;
+    border: 0.2rem solid var(--main-color);
+    font-size: 2.5rem;
+    border-radius: 50%;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.2s ease-in-out;
+}
+
+.social-icons a:hover{
+    color: white;
+    text-shadow: 0 0 10px rgba(247, 203, 11, 0.904), 0 0 20px rgba(247, 203, 11, 0.904), 0 0 30px rgba(247, 203, 11, 0.904);
+    transform: scale(1.3)translateY(-5px);
+}
+
+
+.projects::before {
+    content:'';
+    background-image: url('image00001.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.3;
+
+}
+
+
+
 .swiper-slide {
+    z-index: 1;
     max-width: 800px;
     width: 100%;
     transition: width 700ms ease;
@@ -159,17 +249,18 @@ section {
 
 .slider-video {
     position: relative;
-    z-index: 1;
     overflow: hidden;
     line-height: 0;
     border-radius: 2rem;
+    opacity: 1;
 }
 
-.swiper-slide video{
+.swiper-slide video {
     width: 100%;
+    opacity: 1;
 }
 
-.swiper-btns{
+.swiper-btns {
     max-width: 800px;
     width: 100%;
     height: 70px;
@@ -193,6 +284,150 @@ section {
     bottom: 30px;
     z-index: 11;
     font-size: 6rem;
+}
+
+@media(max-width:1285px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media(max-width:991px) {
+    header {
+        padding: 2rem 3%;
+    }
+
+    section {
+        padding: 10rem 3% 2rem;
+    }
+}
+
+@media(max-width:895px) {
+    #menu-icon {
+        display: block;
+    }
+
+    .header.logo {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3%;
+        background: rgba(12, 12, 15, 0.89);
+        backdrop-filter: blur(20px);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+        
+    }
+
+    .navbar a{
+        display: block;
+        font-size: 1.9rem;
+        margin: 1rem 0;
+        color: white;
+        text-align: right;
+    }
+}
+
+.contact form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact form .input-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box input, .contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: #f5f5fa;
+    background-color: var(--bg-color);
+    border-radius: 0.8rem;
+    border: 2px solid #f5f5fa;
+    margin: 1rem 0;
+    resize: none;
+
+}
+
+
+.contact form .button {
+    background-color: #0c0c0f;
+    margin-top: 2rem;
+    border-radius: 0.8rem;
+    border: 2px transparent;
+    padding: 1rem;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 40px 0;
+    background-color: #0c0c0f;
+}
+
+.footer .social-icons {
+     text-align: center;
+     padding-bottom: 25px;
+}
+
+.footer .social-icons a {
+    font-size: 25px;
+     border: 2px solid #f5f5fa;
+     width: 42px;
+     height: 42px;
+     line-height: 42px;
+     display: inline-block;
+     text-align: center;
+     border-radius: 50%;
+     margin: 0 10px;
+     transition: 0.3s ease-in-out;
+}
+
+.footer ul{
+    margin-top: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.footer ul li a {
+    color: #f5f5fa;
+    border-bottom: 3px solid transparent;
+    transition:  0.3s ease-in-out;
+}
+
+.footer ul li a:hover{
+    text-shadow: 0 0 10px rgba(247, 203, 11, 0.904), 0 0 20px rgba(247, 203, 11, 0.904), 0 0 30px rgba(247, 203, 11, 0.904);
+    transform: scale(1.3)translateY(-5px);
+}
+
+.footer ul li {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.footer .copyright {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: #f5f5fa;
 }
 
 /* 
